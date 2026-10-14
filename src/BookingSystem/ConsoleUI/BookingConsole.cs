@@ -62,8 +62,36 @@ public class BookingConsole(BookingService service)
     {
         Console.Write("Customer name: ");
         var customerName = Console.ReadLine() ?? string.Empty;
-        Console.Write("Room (Aspen, Birken or Eken): ");
-        var roomName = Console.ReadLine() ?? string.Empty;
+
+        Console.WriteLine("Select a room:");
+        Console.WriteLine("1. Aspen");
+        Console.WriteLine("2. Birken");
+        Console.WriteLine("3. Eken");
+
+        string roomName = "";
+
+        while (roomName == "")
+        {
+            Console.WriteLine("Choose a room: ");
+            string? choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    roomName = "Aspen";
+                    break;
+                case "2":
+                    roomName = "Birken";
+                    break;
+                case "3":
+                    roomName = "Eken";
+                    break;
+                default:
+                    Console.WriteLine("Invalid room selection.Try again");
+                    break;
+            }
+        }
+
         var date = ReadDate("Date (yyyy-MM-dd): ");
         var startTime = ReadTime("Start time (HH:mm): ");
         var endTime = ReadTime("End time (HH:mm): ");
