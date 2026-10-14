@@ -1,23 +1,21 @@
-# Booking System – individual coding exam
+BookningSystem är en konsolapplikation som används för att hantera rumsbokningar och innehåller följande funktioner:
 
-This is a starter project for the individual practical coding exam. The
-application targets .NET 10 and contains a console application and xUnit tests.
+- Visa aktiva bokningar sorterade efter datum och starttid.
+-  Söka efter bokningar via kund.
+-  Skapa nya bokningar.
+-  Avboka befintliga bokningar.
+-  Kontrollera rummens kapacitet och förhindra dubbelbokningar.
 
-## Requirements
+Starta Applikationen
 
-- .NET 10 SDK
+1. Öppna solutions BokningSystemExam.slnx i Visual Studio
+2. Kontrollera att BokningSystem är valt som startprojekt.
+3. Starta Applikationen med den gröna startknappen i Visual Studio.
+4. Följ instruktionerna i konsolmenyn.
 
-## Run the application
+Köra Tester
 
-```bash
-dotnet run --project src/BookingSystem
-```
-
-## Run the tests
-
-```bash
-dotnet test
-```
-
-Read the separate assignment instructions before starting. The existing code
-is incomplete and contains intentional defects.
+1. Öppna solutions i Visual Studio.
+2. Gå till Test -> Test Explorer.
+3. Välj "Run all Test" för att köra samtliga tester.
+4. Kontrollera testresultaten i "Test Explorer".
