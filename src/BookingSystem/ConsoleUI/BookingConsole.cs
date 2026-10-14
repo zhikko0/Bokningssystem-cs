@@ -54,14 +54,24 @@ public class BookingConsole(BookingService service)
     private void SearchBookings()
     {
         Console.Write("Customer name: ");
-        var searchTerm = Console.ReadLine() ?? string.Empty;
+        var searchTerm = (Console.ReadLine() ?? "").Trim();
         ShowBookings(service.Search(searchTerm));
     }
 
     private void CreateBooking()
     {
-        Console.Write("Customer name: ");
-        var customerName = Console.ReadLine() ?? string.Empty;
+        string customerName = "";
+
+        while (string.IsNullOrWhiteSpace(customerName))
+        {
+            Console.WriteLine("CustomerName: ");
+            customerName = (Console.ReadLine() ?? "").Trim();
+
+            if (string.IsNullOrWhiteSpace(customerName))
+            {
+                Console.WriteLine("Invalid name. Try again");
+            }
+        }
 
         Console.WriteLine("Select a room:");
         Console.WriteLine("1. Aspen");
