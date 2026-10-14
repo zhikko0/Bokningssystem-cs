@@ -54,7 +54,22 @@ public class BookingService(IBookingRepository repository)
 
     public BookingResult Cancel(int bookingId)
     {
-        throw new NotImplementedException();
+        var booking = repository.GetAll().FirstOrDefault(b => b.Id == bookingId);
+
+        if (booking == null)
+        {
+            return BookingResult.Failure($"Booking {bookingId} does not exist.");
+        }
+        if (booking.IsCancelled == true)
+        {
+            return BookingResult.Failure($"Booking {bookingId} is already cancelled.");
+        }
+        booking.IsCancelled = true;
+
+        repository.Save();
+
+        return BookingResult.Success($"Booking {bookingId} was cancelled.");
+        
     }
 
     private BookingResult Validate(Booking booking)
